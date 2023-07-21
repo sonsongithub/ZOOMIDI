@@ -1,0 +1,14 @@
+{
+        0x00000000:{name:"THRU",group:"THRU",order:1,install:1,ver:0x0101,
+          dsp:10000,dspmax:0,dspmin:0,
+          param:[]
+        },
+        0x00300002:{name:"D Comp",group:"COMP",order:2000,install:0,ver:0x0010,title:"MXR Dyna Comp style comp",
+          dsp:9.7325,dspmax:1/10,dspmin:1/40,
+          param:[
+          {name:"Sense",def:3,max:10},
+          {name:"Tone",def:8,max:10},
+          {name:"Level",def:125,max:150},
+          {name:"ATTCK",def:1,max:1,disp:["Slow","Fast"]},
+        ]}
+}

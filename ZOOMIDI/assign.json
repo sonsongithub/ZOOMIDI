@@ -1,0 +1,1214 @@
+[
+  {
+    "effect_number": 0,
+    "status": [
+      {
+        "byte_offset": 6,
+        "mask": 1,
+        "bit_offset": 0
+      }
+    ],
+    "id": [
+      {
+        "byte_offset": 5,
+        "mask": 64,
+        "bit_offset": 24
+      },
+      {
+        "byte_offset": 6,
+        "mask": 126,
+        "bit_offset": 16
+      },
+      {
+        "byte_offset": 7,
+        "mask": 7,
+        "bit_offset": 8
+      },
+      {
+        "byte_offset": 9,
+        "mask": 31,
+        "bit_offset": 0
+      }
+    ],
+    "params": [
+      [
+        {
+          "byte_offset": 9,
+          "mask": 96,
+          "bit_offset": -5
+        },
+        {
+          "byte_offset": 5,
+          "mask": 8,
+          "bit_offset": -1
+        },
+        {
+          "byte_offset": 10,
+          "mask": 127,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 5,
+          "mask": 4,
+          "bit_offset": 8
+        },
+        {
+          "byte_offset": 11,
+          "mask": 1,
+          "bit_offset": 11
+        }
+      ],
+      [
+        {
+          "byte_offset": 11,
+          "mask": 124,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 5,
+          "mask": 2,
+          "bit_offset": 4
+        },
+        {
+          "byte_offset": 12,
+          "mask": 31,
+          "bit_offset": 6
+        }
+      ],
+      [
+        {
+          "byte_offset": 5,
+          "mask": 1,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 14,
+          "mask": 127,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 13,
+          "mask": 64,
+          "bit_offset": 2
+        },
+        {
+          "byte_offset": 15,
+          "mask": 3,
+          "bit_offset": 9
+        }
+      ],
+      [
+        {
+          "byte_offset": 15,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 13,
+          "mask": 32,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 16,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 16,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 13,
+          "mask": 16,
+          "bit_offset": -1
+        },
+        {
+          "byte_offset": 17,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 17,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 13,
+          "mask": 8,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 18,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 18,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 13,
+          "mask": 4,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 19,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 19,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 13,
+          "mask": 2,
+          "bit_offset": 2
+        },
+        {
+          "byte_offset": 20,
+          "mask": 31,
+          "bit_offset": 4
+        },
+        {
+          "byte_offset": 23,
+          "mask": 64,
+          "bit_offset": -10000
+        }
+      ],
+      [
+        {
+          "byte_offset": 24,
+          "mask": 127,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 21,
+          "mask": 16,
+          "bit_offset": 3
+        }
+      ]
+    ]
+  },
+  {
+    "effect_number": 1,
+    "status": [
+      {
+        "byte_offset": 26,
+        "mask": 1,
+        "bit_offset": 0
+      }
+    ],
+    "id": [
+      {
+        "byte_offset": 21,
+        "mask": 4,
+        "bit_offset": 28
+      },
+      {
+        "byte_offset": 26,
+        "mask": 126,
+        "bit_offset": 16
+      },
+      {
+        "byte_offset": 27,
+        "mask": 7,
+        "bit_offset": 8
+      },
+      {
+        "byte_offset": 30,
+        "mask": 31,
+        "bit_offset": 0
+      }
+    ],
+    "params": [
+      [
+        {
+          "byte_offset": 30,
+          "mask": 96,
+          "bit_offset": -5
+        },
+        {
+          "byte_offset": 29,
+          "mask": 64,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 31,
+          "mask": 127,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 29,
+          "mask": 32,
+          "bit_offset": 5
+        },
+        {
+          "byte_offset": 32,
+          "mask": 1,
+          "bit_offset": 11
+        }
+      ],
+      [
+        {
+          "byte_offset": 32,
+          "mask": 124,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 29,
+          "mask": 16,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 33,
+          "mask": 31,
+          "bit_offset": 6
+        }
+      ],
+      [
+        {
+          "byte_offset": 29,
+          "mask": 8,
+          "bit_offset": -3
+        },
+        {
+          "byte_offset": 34,
+          "mask": 127,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 29,
+          "mask": 4,
+          "bit_offset": 6
+        },
+        {
+          "byte_offset": 35,
+          "mask": 3,
+          "bit_offset": 9
+        }
+      ],
+      [
+        {
+          "byte_offset": 35,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 29,
+          "mask": 2,
+          "bit_offset": 2
+        },
+        {
+          "byte_offset": 36,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 36,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 29,
+          "mask": 1,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 38,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 38,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 37,
+          "mask": 64,
+          "bit_offset": -3
+        },
+        {
+          "byte_offset": 39,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 39,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 37,
+          "mask": 32,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 40,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 40,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 37,
+          "mask": 16,
+          "bit_offset": -1
+        },
+        {
+          "byte_offset": 41,
+          "mask": 31,
+          "bit_offset": 4
+        },
+        {
+          "byte_offset": 43,
+          "mask": 64,
+          "bit_offset": -10000
+        }
+      ],
+      [
+        {
+          "byte_offset": 44,
+          "mask": 127,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 37,
+          "mask": 1,
+          "bit_offset": 7
+        }
+      ]
+    ]
+  },
+  {
+    "effect_number": 2,
+    "status": [
+      {
+        "byte_offset": 47,
+        "mask": 1,
+        "bit_offset": 0
+      }
+    ],
+    "id": [
+      {
+        "byte_offset": 45,
+        "mask": 32,
+        "bit_offset": 25
+      },
+      {
+        "byte_offset": 47,
+        "mask": 126,
+        "bit_offset": 16
+      },
+      {
+        "byte_offset": 48,
+        "mask": 7,
+        "bit_offset": 8
+      },
+      {
+        "byte_offset": 50,
+        "mask": 31,
+        "bit_offset": 0
+      }
+    ],
+    "params": [
+      [
+        {
+          "byte_offset": 50,
+          "mask": 96,
+          "bit_offset": -5
+        },
+        {
+          "byte_offset": 45,
+          "mask": 4,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 51,
+          "mask": 127,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 45,
+          "mask": 2,
+          "bit_offset": 9
+        },
+        {
+          "byte_offset": 52,
+          "mask": 1,
+          "bit_offset": 11
+        }
+      ],
+      [
+        {
+          "byte_offset": 52,
+          "mask": 124,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 45,
+          "mask": 1,
+          "bit_offset": 5
+        },
+        {
+          "byte_offset": 54,
+          "mask": 31,
+          "bit_offset": 6
+        }
+      ],
+      [
+        {
+          "byte_offset": 53,
+          "mask": 64,
+          "bit_offset": -6
+        },
+        {
+          "byte_offset": 55,
+          "mask": 127,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 53,
+          "mask": 32,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 56,
+          "mask": 3,
+          "bit_offset": 9
+        }
+      ],
+      [
+        {
+          "byte_offset": 56,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 53,
+          "mask": 16,
+          "bit_offset": -1
+        },
+        {
+          "byte_offset": 57,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 57,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 53,
+          "mask": 8,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 58,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 58,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 53,
+          "mask": 4,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 59,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 59,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 53,
+          "mask": 2,
+          "bit_offset": 2
+        },
+        {
+          "byte_offset": 60,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 60,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 53,
+          "mask": 1,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 62,
+          "mask": 31,
+          "bit_offset": 4
+        },
+        {
+          "byte_offset": 64,
+          "mask": 64,
+          "bit_offset": -10000
+        }
+      ],
+      [
+        {
+          "byte_offset": 65,
+          "mask": 127,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 61,
+          "mask": 8,
+          "bit_offset": 4
+        }
+      ]
+    ]
+  },
+  {
+    "effect_number": 3,
+    "status": [
+      {
+        "byte_offset": 67,
+        "mask": 1,
+        "bit_offset": 0
+      }
+    ],
+    "id": [
+      {
+        "byte_offset": 61,
+        "mask": 2,
+        "bit_offset": 29
+      },
+      {
+        "byte_offset": 67,
+        "mask": 126,
+        "bit_offset": 16
+      },
+      {
+        "byte_offset": 68,
+        "mask": 7,
+        "bit_offset": 8
+      },
+      {
+        "byte_offset": 71,
+        "mask": 31,
+        "bit_offset": 0
+      }
+    ],
+    "params": [
+      [
+        {
+          "byte_offset": 71,
+          "mask": 96,
+          "bit_offset": -5
+        },
+        {
+          "byte_offset": 69,
+          "mask": 32,
+          "bit_offset": -3
+        },
+        {
+          "byte_offset": 72,
+          "mask": 127,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 69,
+          "mask": 16,
+          "bit_offset": 6
+        },
+        {
+          "byte_offset": 73,
+          "mask": 1,
+          "bit_offset": 11
+        }
+      ],
+      [
+        {
+          "byte_offset": 73,
+          "mask": 124,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 69,
+          "mask": 8,
+          "bit_offset": 2
+        },
+        {
+          "byte_offset": 74,
+          "mask": 31,
+          "bit_offset": 6
+        }
+      ],
+      [
+        {
+          "byte_offset": 69,
+          "mask": 4,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 75,
+          "mask": 127,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 69,
+          "mask": 2,
+          "bit_offset": 7
+        },
+        {
+          "byte_offset": 76,
+          "mask": 3,
+          "bit_offset": 9
+        }
+      ],
+      [
+        {
+          "byte_offset": 76,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 69,
+          "mask": 1,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 78,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 78,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 77,
+          "mask": 64,
+          "bit_offset": -3
+        },
+        {
+          "byte_offset": 79,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 79,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 77,
+          "mask": 32,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 80,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 80,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 77,
+          "mask": 16,
+          "bit_offset": -1
+        },
+        {
+          "byte_offset": 81,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 81,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 77,
+          "mask": 8,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 82,
+          "mask": 31,
+          "bit_offset": 4
+        },
+        {
+          "byte_offset": 84,
+          "mask": 64,
+          "bit_offset": -10000
+        }
+      ],
+      [
+        {
+          "byte_offset": 86,
+          "mask": 127,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 85,
+          "mask": 64,
+          "bit_offset": 1
+        }
+      ]
+    ]
+  },
+  {
+    "effect_number": 4,
+    "status": [
+      {
+        "byte_offset": 88,
+        "mask": 1,
+        "bit_offset": 0
+      }
+    ],
+    "id": [
+      {
+        "byte_offset": 85,
+        "mask": 16,
+        "bit_offset": 26
+      },
+      {
+        "byte_offset": 88,
+        "mask": 126,
+        "bit_offset": 16
+      },
+      {
+        "byte_offset": 89,
+        "mask": 7,
+        "bit_offset": 8
+      },
+      {
+        "byte_offset": 91,
+        "mask": 31,
+        "bit_offset": 0
+      }
+    ],
+    "params": [
+      [
+        {
+          "byte_offset": 91,
+          "mask": 96,
+          "bit_offset": -5
+        },
+        {
+          "byte_offset": 85,
+          "mask": 2,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 92,
+          "mask": 127,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 85,
+          "mask": 1,
+          "bit_offset": 10
+        },
+        {
+          "byte_offset": 94,
+          "mask": 1,
+          "bit_offset": 11
+        }
+      ],
+      [
+        {
+          "byte_offset": 94,
+          "mask": 124,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 93,
+          "mask": 64,
+          "bit_offset": -1
+        },
+        {
+          "byte_offset": 95,
+          "mask": 31,
+          "bit_offset": 6
+        }
+      ],
+      [
+        {
+          "byte_offset": 93,
+          "mask": 32,
+          "bit_offset": -5
+        },
+        {
+          "byte_offset": 96,
+          "mask": 127,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 93,
+          "mask": 16,
+          "bit_offset": 4
+        },
+        {
+          "byte_offset": 97,
+          "mask": 3,
+          "bit_offset": 9
+        }
+      ],
+      [
+        {
+          "byte_offset": 97,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 93,
+          "mask": 8,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 98,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 98,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 93,
+          "mask": 4,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 99,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 99,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 93,
+          "mask": 2,
+          "bit_offset": 2
+        },
+        {
+          "byte_offset": 100,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 100,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 93,
+          "mask": 1,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 102,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 102,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 101,
+          "mask": 64,
+          "bit_offset": -3
+        },
+        {
+          "byte_offset": 103,
+          "mask": 31,
+          "bit_offset": 4
+        },
+        {
+          "byte_offset": 105,
+          "mask": 64,
+          "bit_offset": -10000
+        }
+      ],
+      [
+        {
+          "byte_offset": 106,
+          "mask": 127,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 106,
+          "mask": 4,
+          "bit_offset": 5
+        }
+      ]
+    ]
+  },
+  {
+    "effect_number": 5,
+    "status": [
+      {
+        "byte_offset": 108,
+        "mask": 1,
+        "bit_offset": 0
+      }
+    ],
+    "id": [
+      {
+        "byte_offset": 101,
+        "mask": 1,
+        "bit_offset": 30
+      },
+      {
+        "byte_offset": 108,
+        "mask": 126,
+        "bit_offset": 16
+      },
+      {
+        "byte_offset": 110,
+        "mask": 7,
+        "bit_offset": 8
+      },
+      {
+        "byte_offset": 112,
+        "mask": 31,
+        "bit_offset": 0
+      }
+    ],
+    "params": [
+      [
+        {
+          "byte_offset": 112,
+          "mask": 96,
+          "bit_offset": -5
+        },
+        {
+          "byte_offset": 109,
+          "mask": 16,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 113,
+          "mask": 127,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 109,
+          "mask": 8,
+          "bit_offset": 7
+        },
+        {
+          "byte_offset": 114,
+          "mask": 1,
+          "bit_offset": 11
+        }
+      ],
+      [
+        {
+          "byte_offset": 114,
+          "mask": 124,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 109,
+          "mask": 4,
+          "bit_offset": 3
+        },
+        {
+          "byte_offset": 115,
+          "mask": 31,
+          "bit_offset": 6
+        }
+      ],
+      [
+        {
+          "byte_offset": 109,
+          "mask": 2,
+          "bit_offset": -1
+        },
+        {
+          "byte_offset": 116,
+          "mask": 127,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 109,
+          "mask": 1,
+          "bit_offset": 8
+        },
+        {
+          "byte_offset": 118,
+          "mask": 3,
+          "bit_offset": 9
+        }
+      ],
+      [
+        {
+          "byte_offset": 118,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 117,
+          "mask": 64,
+          "bit_offset": -3
+        },
+        {
+          "byte_offset": 119,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 119,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 117,
+          "mask": 32,
+          "bit_offset": -2
+        },
+        {
+          "byte_offset": 120,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 120,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 117,
+          "mask": 16,
+          "bit_offset": -1
+        },
+        {
+          "byte_offset": 121,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 121,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 117,
+          "mask": 8,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 122,
+          "mask": 15,
+          "bit_offset": 4
+        }
+      ],
+      [
+        {
+          "byte_offset": 122,
+          "mask": 112,
+          "bit_offset": -4
+        },
+        {
+          "byte_offset": 117,
+          "mask": 4,
+          "bit_offset": 1
+        },
+        {
+          "byte_offset": 123,
+          "mask": 31,
+          "bit_offset": 4
+        },
+        {
+          "byte_offset": 126,
+          "mask": 64,
+          "bit_offset": -10000
+        }
+      ],
+      [
+        {
+          "byte_offset": 127,
+          "mask": 127,
+          "bit_offset": 0
+        },
+        {
+          "byte_offset": 125,
+          "mask": 32,
+          "bit_offset": 2
+        }
+      ]
+    ]
+  }
+]

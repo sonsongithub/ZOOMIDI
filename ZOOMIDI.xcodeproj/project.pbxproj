@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		140F505E2A667625009CED58 /* ZOOMIDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140F505D2A667625009CED58 /* ZOOMIDITests.swift */; };
+		140F50692A66773B009CED58 /* patchData02.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50642A66773B009CED58 /* patchData02.bin */; };
+		140F506A2A66773B009CED58 /* patchData01.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50652A66773B009CED58 /* patchData01.bin */; };
+		140F506B2A66773B009CED58 /* patchData03.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50662A66773B009CED58 /* patchData03.bin */; };
+		140F506C2A66773B009CED58 /* parameterEdit.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50672A66773B009CED58 /* parameterEdit.bin */; };
+		140F506D2A66773B009CED58 /* patchData04.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50682A66773B009CED58 /* patchData04.bin */; };
+		14CB73F72A651704002499B8 /* ZOOMIDIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB73F62A651704002499B8 /* ZOOMIDIApp.swift */; };
+		14CB73F92A651704002499B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB73F82A651704002499B8 /* ContentView.swift */; };
+		14CB73FB2A651709002499B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14CB73FA2A651709002499B8 /* Assets.xcassets */; };
+		14CB73FE2A651709002499B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14CB73FD2A651709002499B8 /* Preview Assets.xcassets */; };
+		14CB74052A651A02002499B8 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74042A651A02002499B8 /* Effect.swift */; };
+		14CB74092A651D5C002499B8 /* EffectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74082A651D5C002499B8 /* EffectModel.swift */; };
+		14CB740B2A653346002499B8 /* MIDIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB740A2A653346002499B8 /* MIDIManager.swift */; };
+		14CB740D2A6537C5002499B8 /* assign.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB740C2A6537C5002499B8 /* assign.json */; };
+		14CB740F2A657621002499B8 /* effect.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB740E2A657621002499B8 /* effect.json */; };
+		14CB74112A657709002499B8 /* EffectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74102A657709002499B8 /* EffectData.swift */; };
+		14CB74152A6592F2002499B8 /* effect_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB74122A6592F1002499B8 /* effect_v1.json */; };
+		14CB74162A6592F2002499B8 /* effect_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB74132A6592F1002499B8 /* effect_v2.json */; };
+		14CB74172A6592F2002499B8 /* effect_v3.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB74142A6592F2002499B8 /* effect_v3.json */; };
+		14E954742A67AB9200E58966 /* EffectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74102A657709002499B8 /* EffectData.swift */; };
+		14E954752A67AB9200E58966 /* EffectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74082A651D5C002499B8 /* EffectModel.swift */; };
+		14E954762A67AB9200E58966 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74042A651A02002499B8 /* Effect.swift */; };
+		14E954772A67AB9200E58966 /* MIDIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB740A2A653346002499B8 /* MIDIManager.swift */; };
+		14E954782A67E31900E58966 /* patchData01.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50652A66773B009CED58 /* patchData01.bin */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		140F505F2A667625009CED58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14CB73EB2A651704002499B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14CB73F22A651704002499B8;
+			remoteInfo = ZOOMIDI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		140F505B2A667625009CED58 /* ZOOMIDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZOOMIDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		140F505D2A667625009CED58 /* ZOOMIDITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZOOMIDITests.swift; sourceTree = "<group>"; };
+		140F50642A66773B009CED58 /* patchData02.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = patchData02.bin; sourceTree = "<group>"; };
+		140F50652A66773B009CED58 /* patchData01.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = patchData01.bin; sourceTree = "<group>"; };
+		140F50662A66773B009CED58 /* patchData03.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = patchData03.bin; sourceTree = "<group>"; };
+		140F50672A66773B009CED58 /* parameterEdit.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = parameterEdit.bin; sourceTree = "<group>"; };
+		140F50682A66773B009CED58 /* patchData04.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = patchData04.bin; sourceTree = "<group>"; };
+		14CB73F32A651704002499B8 /* ZOOMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZOOMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14CB73F62A651704002499B8 /* ZOOMIDIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZOOMIDIApp.swift; sourceTree = "<group>"; };
+		14CB73F82A651704002499B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		14CB73FA2A651709002499B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14CB73FD2A651709002499B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		14CB74042A651A02002499B8 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		14CB74082A651D5C002499B8 /* EffectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectModel.swift; sourceTree = "<group>"; };
+		14CB740A2A653346002499B8 /* MIDIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIManager.swift; sourceTree = "<group>"; };
+		14CB740C2A6537C5002499B8 /* assign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = assign.json; sourceTree = "<group>"; };
+		14CB740E2A657621002499B8 /* effect.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effect.json; sourceTree = "<group>"; };
+		14CB74102A657709002499B8 /* EffectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectData.swift; sourceTree = "<group>"; };
+		14CB74122A6592F1002499B8 /* effect_v1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effect_v1.json; sourceTree = "<group>"; };
+		14CB74132A6592F1002499B8 /* effect_v2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effect_v2.json; sourceTree = "<group>"; };
+		14CB74142A6592F2002499B8 /* effect_v3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effect_v3.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		140F50582A667625009CED58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14CB73F02A651704002499B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		140F505C2A667625009CED58 /* ZOOMIDITests */ = {
+			isa = PBXGroup;
+			children = (
+				140F50672A66773B009CED58 /* parameterEdit.bin */,
+				140F50652A66773B009CED58 /* patchData01.bin */,
+				140F50642A66773B009CED58 /* patchData02.bin */,
+				140F50662A66773B009CED58 /* patchData03.bin */,
+				140F50682A66773B009CED58 /* patchData04.bin */,
+				140F505D2A667625009CED58 /* ZOOMIDITests.swift */,
+			);
+			path = ZOOMIDITests;
+			sourceTree = "<group>";
+		};
+		14CB73EA2A651704002499B8 = {
+			isa = PBXGroup;
+			children = (
+				14CB73F52A651704002499B8 /* ZOOMIDI */,
+				140F505C2A667625009CED58 /* ZOOMIDITests */,
+				14CB73F42A651704002499B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		14CB73F42A651704002499B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14CB73F32A651704002499B8 /* ZOOMIDI.app */,
+				140F505B2A667625009CED58 /* ZOOMIDITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14CB73F52A651704002499B8 /* ZOOMIDI */ = {
+			isa = PBXGroup;
+			children = (
+				14CB73F62A651704002499B8 /* ZOOMIDIApp.swift */,
+				14CB73F82A651704002499B8 /* ContentView.swift */,
+				14CB740C2A6537C5002499B8 /* assign.json */,
+				14CB740E2A657621002499B8 /* effect.json */,
+				14CB74122A6592F1002499B8 /* effect_v1.json */,
+				14CB74132A6592F1002499B8 /* effect_v2.json */,
+				14CB74142A6592F2002499B8 /* effect_v3.json */,
+				14CB740A2A653346002499B8 /* MIDIManager.swift */,
+				14CB74042A651A02002499B8 /* Effect.swift */,
+				14CB74102A657709002499B8 /* EffectData.swift */,
+				14CB74082A651D5C002499B8 /* EffectModel.swift */,
+				14CB73FA2A651709002499B8 /* Assets.xcassets */,
+				14CB73FC2A651709002499B8 /* Preview Content */,
+			);
+			path = ZOOMIDI;
+			sourceTree = "<group>";
+		};
+		14CB73FC2A651709002499B8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				14CB73FD2A651709002499B8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		140F505A2A667625009CED58 /* ZOOMIDITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 140F50632A667625009CED58 /* Build configuration list for PBXNativeTarget "ZOOMIDITests" */;
+			buildPhases = (
+				140F50572A667625009CED58 /* Sources */,
+				140F50582A667625009CED58 /* Frameworks */,
+				140F50592A667625009CED58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				140F50602A667625009CED58 /* PBXTargetDependency */,
+			);
+			name = ZOOMIDITests;
+			productName = ZOOMIDITests;
+			productReference = 140F505B2A667625009CED58 /* ZOOMIDITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		14CB73F22A651704002499B8 /* ZOOMIDI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14CB74012A651709002499B8 /* Build configuration list for PBXNativeTarget "ZOOMIDI" */;
+			buildPhases = (
+				14CB73EF2A651704002499B8 /* Sources */,
+				14CB73F02A651704002499B8 /* Frameworks */,
+				14CB73F12A651704002499B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZOOMIDI;
+			productName = ZOOMIDI;
+			productReference = 14CB73F32A651704002499B8 /* ZOOMIDI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		14CB73EB2A651704002499B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					140F505A2A667625009CED58 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 14CB73F22A651704002499B8;
+					};
+					14CB73F22A651704002499B8 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 14CB73EE2A651704002499B8 /* Build configuration list for PBXProject "ZOOMIDI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 14CB73EA2A651704002499B8;
+			productRefGroup = 14CB73F42A651704002499B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				14CB73F22A651704002499B8 /* ZOOMIDI */,
+				140F505A2A667625009CED58 /* ZOOMIDITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		140F50592A667625009CED58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				140F50692A66773B009CED58 /* patchData02.bin in Resources */,
+				140F506B2A66773B009CED58 /* patchData03.bin in Resources */,
+				140F506A2A66773B009CED58 /* patchData01.bin in Resources */,
+				140F506C2A66773B009CED58 /* parameterEdit.bin in Resources */,
+				140F506D2A66773B009CED58 /* patchData04.bin in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14CB73F12A651704002499B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14CB74172A6592F2002499B8 /* effect_v3.json in Resources */,
+				14E954782A67E31900E58966 /* patchData01.bin in Resources */,
+				14CB74162A6592F2002499B8 /* effect_v2.json in Resources */,
+				14CB740F2A657621002499B8 /* effect.json in Resources */,
+				14CB74152A6592F2002499B8 /* effect_v1.json in Resources */,
+				14CB740D2A6537C5002499B8 /* assign.json in Resources */,
+				14CB73FE2A651709002499B8 /* Preview Assets.xcassets in Resources */,
+				14CB73FB2A651709002499B8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		140F50572A667625009CED58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14E954762A67AB9200E58966 /* Effect.swift in Sources */,
+				14E954742A67AB9200E58966 /* EffectData.swift in Sources */,
+				14E954752A67AB9200E58966 /* EffectModel.swift in Sources */,
+				140F505E2A667625009CED58 /* ZOOMIDITests.swift in Sources */,
+				14E954772A67AB9200E58966 /* MIDIManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14CB73EF2A651704002499B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14CB74112A657709002499B8 /* EffectData.swift in Sources */,
+				14CB74052A651A02002499B8 /* Effect.swift in Sources */,
+				14CB73F92A651704002499B8 /* ContentView.swift in Sources */,
+				14CB74092A651D5C002499B8 /* EffectModel.swift in Sources */,
+				14CB73F72A651704002499B8 /* ZOOMIDIApp.swift in Sources */,
+				14CB740B2A653346002499B8 /* MIDIManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		140F50602A667625009CED58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14CB73F22A651704002499B8 /* ZOOMIDI */;
+			targetProxy = 140F505F2A667625009CED58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		140F50612A667625009CED58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.ZOOMIDITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZOOMIDI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZOOMIDI";
+			};
+			name = Debug;
+		};
+		140F50622A667625009CED58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.ZOOMIDITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZOOMIDI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZOOMIDI";
+			};
+			name = Release;
+		};
+		14CB73FF2A651709002499B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		14CB74002A651709002499B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14CB74022A651709002499B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ZOOMIDI/Preview Content\"";
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.ZOOMIDI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14CB74032A651709002499B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ZOOMIDI/Preview Content\"";
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.ZOOMIDI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		140F50632A667625009CED58 /* Build configuration list for PBXNativeTarget "ZOOMIDITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				140F50612A667625009CED58 /* Debug */,
+				140F50622A667625009CED58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14CB73EE2A651704002499B8 /* Build configuration list for PBXProject "ZOOMIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14CB73FF2A651709002499B8 /* Debug */,
+				14CB74002A651709002499B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14CB74012A651709002499B8 /* Build configuration list for PBXNativeTarget "ZOOMIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14CB74022A651709002499B8 /* Debug */,
+				14CB74032A651709002499B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 14CB73EB2A651704002499B8 /* Project object */;
+}
