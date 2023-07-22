@@ -8,32 +8,14 @@
 import Foundation
 import CoreMIDI
 
-struct DataByteMap {
-    let byteOffset: Int
-    let mask: Int
-    let bitOffset: Int
-    
-    init?(dict: [String: Int]) {
-        if let a = dict["byte_offset"], let b = dict["bit_offset"], let c = dict["mask"] {
-            self.byteOffset = a
-            self.bitOffset = b
-            self.mask = c
-        } else {
-            return nil
-        }
-    }
-}
+
 
 extension Notification.Name {
     static let updatePatches = Notification.Name("UpdatePatches")
     static let updateValue = Notification.Name("updateValue")
 }
 
-struct EffectByteMap {
-    let id: [DataByteMap]
-    let status: [DataByteMap]
-    let params: [[DataByteMap]]
-}
+
 
 /// Get source and destination devices that have the specified name.
 /// If there are no source and destination devices that have the specified name and some errors are happened, this function throws error.
@@ -295,7 +277,7 @@ class MIDIManager {
     var map_array: [EffectByteMap] = []
     
     
-    func parsePatchBytes(bytes: [UInt8]) throws -> [Effect] {
+    func parsePatchBytes(bytes: [UInt8]) throws -> [Effector] {
         guard bytes.count == 105 else { throw NSError() }
         
         let indexForPatchName = [91, 92, 94, 95, 96, 97, 98, 99, 100, 102]
@@ -310,64 +292,34 @@ class MIDIManager {
 //        let c1 = Int(bytes[85] & 0b00001000 >> 3)
 //        let n0 = Int(bytes[89] & 0b00000100 >> 2)
 //        let df0 = Int(bytes[88] & 0b00000001 >> 9)
-        
-        let objs = try map_array[0..<4].map( { map_entry in
-            print("-----------------------")
-            let id_value = map_entry.id.reduce(into: 0) { re, obj in
-                re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
-            }
-            print(String(format: "%02x", id_value))
-            
-            let status_value = map_entry.status.reduce(into: 0) { re, obj in
-                re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
-            }
-            print(String(format: "%02x", status_value))
-            let params = map_entry.params.map({ param_map in
-                let value = param_map.reduce(into: 0) { re, obj in
-                    re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
-                }
-                return value
-            })
-            
-            guard let template = EffectData.data[id_value] else { throw NSError() }
-            
-            return Effect(template: template, effectId: id_value, status: status_value, values: params, params: template.parameters)
-        })
-        return objs
+        return []
+//        let objs = try map_array[0..<4].map( { map_entry in
+//            print("-----------------------")
+//            let id_value = map_entry.id.reduce(into: 0) { re, obj in
+//                re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
+//            }
+//            print(String(format: "%02x", id_value))
+//
+//            let status_value = map_entry.status.reduce(into: 0) { re, obj in
+//                re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
+//            }
+//            print(String(format: "%02x", status_value))
+//            let params = map_entry.params.map({ param_map in
+//                let value = param_map.reduce(into: 0) { re, obj in
+//                    re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
+//                }
+//                return value
+//            })
+//
+//            guard let template = EffectorType.data[id_value] else { throw NSError() }
+//
+//            return Effector(template: template, effectId: id_value, status: status_value, values: params, params: template.parameters)
+//        })
+//        return objs
     }
     
     init() {
         
-        // ファイルの内容 Data オブジェクトとして読み込む
-        
-        if let data = FileManager.default.contents(atPath: Bundle.main.path(forResource: "assign.json", ofType: nil)!) {
-            do {
-                // Data オブジェクトを JSON オブジェクトに変換
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                // JSON オブジェクトを Dictionary にキャスト
-                if let dictionary = json as? [Any] {
-                    let data = dictionary.compactMap({ $0 as? [String: Any]})
-                    let t = try data.map { dict in
-                        guard let id = dict["id"] as? [[String: Int]] else { throw NSError() }
-                        let id_array = id.compactMap({DataByteMap(dict: $0)})
-                        
-                        guard let status = dict["status"] as? [[String: Int]] else { throw NSError() }
-                        let status_array = status.compactMap({DataByteMap(dict: $0)})
-                    
-                        guard let tmp_params = dict["params"] as? [Any] else { throw NSError() }
-                        let tmp_buf = tmp_params.compactMap({$0 as? [[String: Int]]})
-                        let params_array = tmp_buf.map { array in
-                            array.compactMap({DataByteMap(dict: $0)})
-                        }
-                        return EffectByteMap(id: id_array, status: status_array, params: params_array)
-                    }
-                    print(t.count)
-                    map_array.append(contentsOf: t)
-                }
-            } catch {
-                print("JSON ファイルの読み取りエラー: \(error.localizedDescription)")
-            }
-        }
         do {
             let (destinationUniqueID, sourceUniqueID) = try getEndPointIDsThatHave()
             let (destination, _) = try getEndPoint(with: destinationUniqueID)

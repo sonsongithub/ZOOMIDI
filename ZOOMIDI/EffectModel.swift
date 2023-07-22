@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 
 class EffectModel: ObservableObject {
-    @Published var effects: [Effect] = []
+    @Published var effects: [Effector] = []
     
     init() {
-        
     }
     
-    init(effects: [Effect]) {
+    init(effects: [Effector]) {
         self.effects = effects
         NotificationCenter.default.addObserver(self, selector: #selector(doSomething(notification:)), name: .updatePatches, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(udpateValue(notification:)), name: .updateValue, object: nil)
@@ -23,7 +22,7 @@ class EffectModel: ObservableObject {
     
     @objc func doSomething(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
-        if let objs = userInfo["values"] as? [Effect] {
+        if let objs = userInfo["values"] as? [Effector] {
             self.effects = objs
         }
     }

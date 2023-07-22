@@ -69,10 +69,10 @@ struct EffectData {
     }
     
     static var data: [Int: EffectData] = [:]
+    
     static func load() {
         if let data = FileManager.default.contents(atPath: Bundle.main.path(forResource: "effect_v1.json", ofType: nil)!) {
             do {
-                // Data オブジェクトを JSON オブジェクトに変換
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 if let rootJson = json as? [String: Any] {
                     try rootJson.keys.sorted().forEach { effect_number in
@@ -110,7 +110,6 @@ struct EffectData {
                                 guard let list = disp["list"] as? [String] else { throw EffectDataError.TemplateCABParseError}
                                 return EffectCABParam(name: name, default: def, max: max, list: list, disp_type: type, disp_min: disp_min, disp_max: disp_max)
                             default:
-                                print("------------------------------")
                                 throw EffectDataError.TemplateParamMaxDispParseError
                             }
                         })
@@ -129,7 +128,7 @@ struct EffectData {
                     }
                 }
             } catch {
-                print("JSON ファイルの読み取りエラー: \(error.localizedDescription)")
+                print(error)
             }
         }
     }
