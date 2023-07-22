@@ -12,16 +12,60 @@ struct HogeView: View {
     @ObservedObject var parameter: Parameter
     
     var body: some View {
-        Text("a").frame(width: 100, height: 150).background()
+        switch parameter.type {
+        case .single(let name, _, let max, _):
+            VStack {
+                Text(name)
+                Gauge(value: parameter.floatValue) {
+                    Text("\(name)")
+                } currentValueLabel: {
+                    Text("\(Int(parameter.floatValue))")
+                } minimumValueLabel: {
+                    Text("0")
+                } maximumValueLabel: {
+                    Text("\(max)")
+                }.gaugeStyle(.accessoryCircular)
+                Slider(value: $parameter.floatValue, in: 0...Float(max), step: 1) {
+                }.onChange(of: parameter.floatValue) { newValue in
+                    print(newValue)
+                }
+
+            }.frame(width: 100, height:180).background()
+        case .list(let name, _, let _, let titles):
+            VStack {
+                Text(name)
+                Picker(selection: $parameter.intValue, label: Text(name)) {
+                    ForEach(0..<titles.count) { i in
+                        Text(titles[i])
+                    }
+                }.onChange(of: parameter.intValue) { newValue in
+                    print(newValue)
+                }
+            }.frame(width: 100, height:180).background()
+        case .pair(let name, _, let max, let titles):
+            VStack {
+                Text(name)
+                Picker(selection: $parameter.intValue, label: Text(name)) {
+                    ForEach(0..<titles.count) { i in
+                        Text(titles[i])
+                    }
+                }.onChange(of: parameter.intValue) { newValue in
+                    print(max[newValue])
+                }
+            }.frame(width: 100, height:180).background()
+        case .none:
+            VStack {
+                Text("")
+            }.frame(width: 100, height:180).background(.clear)
+        default:
+            VStack {
+                Text("\(parameter.value)")
+            }.frame(width: 100, height:180).background()
+        }
     }
 }
 
-//switch item.type {
-//case .single(name: _, default: _, max: _, offset: _):
-//    Text("single = \(item.value)")
-//default:
-//    Text("other = \(item.value)")
-//}
+
 struct EffectView: View {
     @ObservedObject var effect: Effector
     
@@ -53,14 +97,14 @@ struct EffectView: View {
 }
 
 struct ContentView: View {
-    @ObservedObject var model: EffectModel
+    @ObservedObject var patch: Patch
     
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                ForEach(self.model.effects.reversed()) { item in
+                ForEach(self.patch.effects.reversed()) { item in
                     EffectView(effect: item)
-                        .frame(width: 400, height: 600)
+                        .frame(width: 400, height: 800)
                         .background(.gray)
                 }
             }
@@ -69,7 +113,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let effects: [Effector] = { () in
+    static let patch: Patch = { () in
         do {
             try EffectorType.load()
             try PatchBinaryMap.load()
@@ -81,15 +125,14 @@ struct ContentView_Previews: PreviewProvider {
                 let p = pointer.bindMemory(to: UInt8.self)
                 return [UInt8](UnsafeBufferPointer(start: p.baseAddress, count: data.count))
             }
-            let patch = try Patch(bytes: bytes)
-            return patch.effects
+            return try Patch(bytes: bytes)
         } catch {
             print(error)
+            return Patch()
         }
-        return []
     }()
     
     static var previews: some View {
-        ContentView(model: EffectModel(effects: effects))
+        ContentView(patch: patch)
     }
 }

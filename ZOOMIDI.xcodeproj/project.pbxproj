@@ -21,21 +21,19 @@
 		1486A03F2A6ABFC000BF2B4D /* Patch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1486A03D2A6ABFC000BF2B4D /* Patch.swift */; };
 		149B82F02A6AC51200BE6B66 /* PatchBinaryMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */; };
 		149B82F12A6AC51200BE6B66 /* PatchBinaryMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */; };
+		149B82F32A6B678900BE6B66 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B82F22A6B678900BE6B66 /* Parameter.swift */; };
+		149B82F42A6B678900BE6B66 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B82F22A6B678900BE6B66 /* Parameter.swift */; };
 		14CB73F72A651704002499B8 /* ZOOMIDIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB73F62A651704002499B8 /* ZOOMIDIApp.swift */; };
 		14CB73F92A651704002499B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB73F82A651704002499B8 /* ContentView.swift */; };
 		14CB73FB2A651709002499B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14CB73FA2A651709002499B8 /* Assets.xcassets */; };
 		14CB73FE2A651709002499B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14CB73FD2A651709002499B8 /* Preview Assets.xcassets */; };
 		14CB74052A651A02002499B8 /* Effector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74042A651A02002499B8 /* Effector.swift */; };
-		14CB74092A651D5C002499B8 /* EffectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74082A651D5C002499B8 /* EffectModel.swift */; };
 		14CB740B2A653346002499B8 /* MIDIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB740A2A653346002499B8 /* MIDIManager.swift */; };
 		14CB740D2A6537C5002499B8 /* assign.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB740C2A6537C5002499B8 /* assign.json */; };
 		14CB740F2A657621002499B8 /* effect.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB740E2A657621002499B8 /* effect.json */; };
-		14CB74112A657709002499B8 /* EffectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74102A657709002499B8 /* EffectData.swift */; };
 		14CB74152A6592F2002499B8 /* effect_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB74122A6592F1002499B8 /* effect_v1.json */; };
 		14CB74162A6592F2002499B8 /* effect_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB74132A6592F1002499B8 /* effect_v2.json */; };
 		14CB74172A6592F2002499B8 /* effect_v3.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CB74142A6592F2002499B8 /* effect_v3.json */; };
-		14E954742A67AB9200E58966 /* EffectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74102A657709002499B8 /* EffectData.swift */; };
-		14E954752A67AB9200E58966 /* EffectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74082A651D5C002499B8 /* EffectModel.swift */; };
 		14E954762A67AB9200E58966 /* Effector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB74042A651A02002499B8 /* Effector.swift */; };
 		14E954772A67AB9200E58966 /* MIDIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB740A2A653346002499B8 /* MIDIManager.swift */; };
 		14E954782A67E31900E58966 /* patchData01.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50652A66773B009CED58 /* patchData01.bin */; };
@@ -63,17 +61,16 @@
 		140F50682A66773B009CED58 /* patchData04.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = patchData04.bin; sourceTree = "<group>"; };
 		1486A03D2A6ABFC000BF2B4D /* Patch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patch.swift; sourceTree = "<group>"; };
 		149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchBinaryMap.swift; sourceTree = "<group>"; };
+		149B82F22A6B678900BE6B66 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		14CB73F32A651704002499B8 /* ZOOMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZOOMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14CB73F62A651704002499B8 /* ZOOMIDIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZOOMIDIApp.swift; sourceTree = "<group>"; };
 		14CB73F82A651704002499B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		14CB73FA2A651709002499B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14CB73FD2A651709002499B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		14CB74042A651A02002499B8 /* Effector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effector.swift; sourceTree = "<group>"; };
-		14CB74082A651D5C002499B8 /* EffectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectModel.swift; sourceTree = "<group>"; };
 		14CB740A2A653346002499B8 /* MIDIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIManager.swift; sourceTree = "<group>"; };
 		14CB740C2A6537C5002499B8 /* assign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = assign.json; sourceTree = "<group>"; };
 		14CB740E2A657621002499B8 /* effect.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effect.json; sourceTree = "<group>"; };
-		14CB74102A657709002499B8 /* EffectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectData.swift; sourceTree = "<group>"; };
 		14CB74122A6592F1002499B8 /* effect_v1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effect_v1.json; sourceTree = "<group>"; };
 		14CB74132A6592F1002499B8 /* effect_v2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effect_v2.json; sourceTree = "<group>"; };
 		14CB74142A6592F2002499B8 /* effect_v3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effect_v3.json; sourceTree = "<group>"; };
@@ -142,10 +139,9 @@
 				1486A03D2A6ABFC000BF2B4D /* Patch.swift */,
 				149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */,
 				14CB74042A651A02002499B8 /* Effector.swift */,
+				149B82F22A6B678900BE6B66 /* Parameter.swift */,
 				140ACAA32A6A85EB00BF0F04 /* EffectorType.swift */,
 				140ACAA12A6A806D00BF0F04 /* ParameterType.swift */,
-				14CB74102A657709002499B8 /* EffectData.swift */,
-				14CB74082A651D5C002499B8 /* EffectModel.swift */,
 				14CB73FA2A651709002499B8 /* Assets.xcassets */,
 				14CB73FC2A651709002499B8 /* Preview Content */,
 			);
@@ -272,9 +268,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14E954762A67AB9200E58966 /* Effector.swift in Sources */,
-				14E954742A67AB9200E58966 /* EffectData.swift in Sources */,
+				149B82F42A6B678900BE6B66 /* Parameter.swift in Sources */,
 				149B82F12A6AC51200BE6B66 /* PatchBinaryMap.swift in Sources */,
-				14E954752A67AB9200E58966 /* EffectModel.swift in Sources */,
 				140F505E2A667625009CED58 /* ZOOMIDITests.swift in Sources */,
 				14E954772A67AB9200E58966 /* MIDIManager.swift in Sources */,
 				140ACAA62A6A892000BF0F04 /* ParameterType.swift in Sources */,
@@ -287,15 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14CB74112A657709002499B8 /* EffectData.swift in Sources */,
 				14CB74052A651A02002499B8 /* Effector.swift in Sources */,
 				14CB73F92A651704002499B8 /* ContentView.swift in Sources */,
 				140ACAA22A6A806D00BF0F04 /* ParameterType.swift in Sources */,
-				14CB74092A651D5C002499B8 /* EffectModel.swift in Sources */,
 				140ACAA42A6A85EB00BF0F04 /* EffectorType.swift in Sources */,
 				14CB73F72A651704002499B8 /* ZOOMIDIApp.swift in Sources */,
 				1486A03E2A6ABFC000BF2B4D /* Patch.swift in Sources */,
 				149B82F02A6AC51200BE6B66 /* PatchBinaryMap.swift in Sources */,
+				149B82F32A6B678900BE6B66 /* Parameter.swift in Sources */,
 				14CB740B2A653346002499B8 /* MIDIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

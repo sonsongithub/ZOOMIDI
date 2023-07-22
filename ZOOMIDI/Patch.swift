@@ -10,11 +10,17 @@ import Foundation
 enum PatchError: Error {
     case byteSizeNotCorrect
     case nameNotFound
+    case effectTypeNotFound
 }
 
 class Patch: ObservableObject {
     @Published var name: String
     @Published var effects: [Effector] = []
+    
+    init() {
+        name = ""
+        effects = []
+    }
     
     init(bytes: [UInt8]) throws {
         guard bytes.count == 105 else { throw PatchError.byteSizeNotCorrect }
@@ -46,7 +52,7 @@ class Patch: ObservableObject {
                 return value
             })
             
-            guard let type: EffectorType = EffectorType.data[id_value] else { throw NSError() }
+            guard let type: EffectorType = EffectorType.data[id_value] else { throw PatchError.effectTypeNotFound }
            
             let parameters: [Parameter] = zip(type.parameters, params).map({ (parameterType, value) in
                 return Parameter(value: value, type: parameterType)

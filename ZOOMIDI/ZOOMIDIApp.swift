@@ -9,21 +9,15 @@ import SwiftUI
 
 @main
 struct ZOOMIDIApp: App {
-    static let effects: [Effector] = [
-//            Effect(effectId: 0, status: 1, params: [0, 1, 2]),
-//            Effect(effectId: 2, status: 1, params: [2, 1, 2]),
-//            Effect(effectId:10, status: 1, params: [3, 1, 2]),
-        ]
     
-    @StateObject var model = EffectModel(effects: ZOOMIDIApp.effects)
+    @StateObject var patch = Patch()
     
     var midiManger = MIDIManager()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(model: model)
+            ContentView(patch: patch)
                 .task {
-                    EffectData.load()
                     midiManger.start()
                 }
         }
