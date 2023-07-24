@@ -13,6 +13,7 @@ import CoreMIDI
 extension Notification.Name {
     static let updatePatches = Notification.Name("UpdatePatches")
     static let updateValue = Notification.Name("updateValue")
+    static let requestBytes = Notification.Name("requestBytes")
 }
 
 
@@ -265,58 +266,17 @@ func parsePathDidChange(bytes: [UInt8]) {
         "paramNum": paramNum,
         "value": value,
     ]
+    
+    print(bytes)
+    
     DispatchQueue.main.async {
         NotificationCenter.default.post(name: .updateValue, object: nil, userInfo: userInfo)
     }
 }
 
 class MIDIManager {
-    
     var destination = MIDIDeviceRef()
     var destionationPort = MIDIPortRef()
-    var map_array: [EffectByteMap] = []
-    
-    
-    func parsePatchBytes(bytes: [UInt8]) throws -> [Effector] {
-        guard bytes.count == 105 else { throw NSError() }
-        
-        let indexForPatchName = [91, 92, 94, 95, 96, 97, 98, 99, 100, 102]
-        
-        let nameBytes = indexForPatchName.map { bytes[$0] }
-        
-        if let name = String(bytes: nameBytes, encoding: .utf8) {
-            print(name)
-        }
-        
-//        let c0 = Int(bytes[88] & 0b01000000 >> 6)
-//        let c1 = Int(bytes[85] & 0b00001000 >> 3)
-//        let n0 = Int(bytes[89] & 0b00000100 >> 2)
-//        let df0 = Int(bytes[88] & 0b00000001 >> 9)
-        return []
-//        let objs = try map_array[0..<4].map( { map_entry in
-//            print("-----------------------")
-//            let id_value = map_entry.id.reduce(into: 0) { re, obj in
-//                re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
-//            }
-//            print(String(format: "%02x", id_value))
-//
-//            let status_value = map_entry.status.reduce(into: 0) { re, obj in
-//                re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
-//            }
-//            print(String(format: "%02x", status_value))
-//            let params = map_entry.params.map({ param_map in
-//                let value = param_map.reduce(into: 0) { re, obj in
-//                    re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
-//                }
-//                return value
-//            })
-//
-//            guard let template = EffectorType.data[id_value] else { throw NSError() }
-//
-//            return Effector(template: template, effectId: id_value, status: status_value, values: params, params: template.parameters)
-//        })
-//        return objs
-    }
     
     init() {
         
@@ -361,6 +321,16 @@ class MIDIManager {
         case receiving
     }
     
+    @objc func didReceiveRequest(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let bytes = userInfo["bytes"] as? [UInt8] else { return }
+        do {
+            try self.send(messages: bytes)
+        } catch {
+            print(error)
+        }
+    }
+    
     var status = Status.wait
     var buffer: [UInt8] = []
     
@@ -383,16 +353,9 @@ class MIDIManager {
             self.buffer.append(contentsOf: buf)
             if buf.last == 0xf7 {
                 let output = self.buffer.map({String(format: "%02x", $0)}).joined(separator: " ")
-                print(output)
                 DispatchQueue.main.async {
-                    do {
-                        let objs = try self.parsePatchBytes(bytes: self.buffer)
-                        NotificationCenter.default.post(name: .updatePatches, object: nil, userInfo: ["values": objs])
-                    } catch {
-//                        print(error)
-                    }
+                    NotificationCenter.default.post(name: .updatePatches, object: nil, userInfo: ["bytes": self.buffer])
                 }
-//                parsePathDidChange(bytes: self.buffer)
             }
         }
     }
@@ -402,6 +365,7 @@ class MIDIManager {
     
     func start() {
         do {
+            NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRequest(notification:)), name: .requestBytes, object: nil)
             try self.send(messages: [UInt8(0x7e), UInt8(0x00), UInt8(0x06), UInt8(0x01)])
             try self.send(messages: [UInt8(0x52), UInt8(0x00), UInt8(0x5f), UInt8(0x50)])
             try self.send(messages: [UInt8(0x52), UInt8(0x00), UInt8(0x5f), UInt8(0x29)])

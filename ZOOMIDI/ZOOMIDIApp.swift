@@ -18,7 +18,13 @@ struct ZOOMIDIApp: App {
         WindowGroup {
             ContentView(patch: patch)
                 .task {
-                    midiManger.start()
+                    do {
+                        try PatchBinaryMap.load()
+                        try EffectorType.load()
+                        midiManger.start()
+                    } catch {
+                        print(error)
+                    }
                 }
         }
     }

@@ -38,13 +38,18 @@
           "bit_offset": -5
         },
         {
+          "byte_offset": 10,
+          "mask": 64,
+          "bit_offset": 3
+        },
+        {
           "byte_offset": 5,
           "mask": 8,
           "bit_offset": -1
         },
         {
           "byte_offset": 10,
-          "mask": 127,
+          "mask": 63,
           "bit_offset": 3
         },
         {
