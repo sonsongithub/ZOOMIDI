@@ -356,7 +356,6 @@ class MIDIManager {
             
             let (_, sourcePort) = try initInput(clientName: "clientDest", portName: "portDest", block: self.receive(listPointer:context:))
             
-//            let (_, sourcePort) = try old_initInput(clientName: "clientDest", portName: "portDest", block: self.receive(listPointer:context:))
             MIDIPortConnectSource(sourcePort, source, nil)
         } catch {
             print(error)
@@ -393,32 +392,6 @@ class MIDIManager {
     var status = Status.wait
     var buffer: [UInt8] = []
     
-    func receive(listPointer: UnsafePointer<MIDIPacketList>, context: UnsafeMutableRawPointer?) -> Void {
-        listPointer.unsafeSequence().forEach { pointer in
-            let length = Int(pointer.pointee.length)
-            var tmp = pointer.pointee.data
-            var buf: [UInt8] = []
-            withUnsafePointer(to: &tmp) { p in
-                p.withMemoryRebound(to: UInt8.self, capacity: length) { pp in
-                    for i in 0..<length {
-                        buf.append((pp + i).pointee)
-                    }
-                }
-            }
-            
-            if buf[0] == 0xf0 {
-                self.buffer.removeAll()
-            }
-            self.buffer.append(contentsOf: buf)
-            if buf.last == 0xf7 {
-                let output = self.buffer.map({String(format: "%02x", $0)}).joined(separator: " ")
-                DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: .updatePatches, object: nil, userInfo: ["bytes": self.buffer])
-                }
-            }
-        }
-    }
-
     func receive(listPointer: UnsafePointer<MIDIEventList>, context: UnsafeMutableRawPointer?) -> Void {
         do {
             try listPointer.unsafeSequence().map { element -> Void in
