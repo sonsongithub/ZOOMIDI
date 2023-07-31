@@ -160,7 +160,7 @@ enum MIDI2SystemExclusiveStatus {
 
 func eventListUMP8Byte2UInt8(list: UnsafePointer<MIDIEventList> ) -> [UInt8] {
     
-    let num = list.pointee.numPackets
+//    let num = list.pointee.numPackets
         
     let tmp:[[UInt8]] = list.unsafeSequence().map { element -> [UInt8] in
         let mt = element.pointee.words.0 >> 28
@@ -274,6 +274,65 @@ func parsePathDidChange(bytes: [UInt8]) {
     }
 }
 
+extension Array {
+    // split array into chunks of n
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
+    }
+}
+
+enum CustomUMPPacketError : Error {
+    case undefinedStatus
+}
+
+enum SysExPacketLengthError : Error {
+    case notEvenNumberedLength
+}
+
+struct CustomUMPPacket {
+    
+    
+    let mt: UInt32
+    let group: UInt32
+    let status: MIDI2SystemExclusiveStatus
+    let length: UInt32
+    let bytes: [UInt8]
+    
+    init(firstPacket: UInt32, secondPacket: UInt32) throws {
+        mt = firstPacket >> 28
+        group = (firstPacket >> 24) & UInt32(0x0f)
+        let tmp_status = (firstPacket >> 20) & UInt32(0x0f)
+        length = (firstPacket >> 16) & UInt32(0x0f)
+        
+        switch tmp_status {
+        case 0:
+            status = .one
+        case 1:
+            status = .start
+        case 2:
+            status = .continue
+        case 3:
+            status = .end
+        default:
+            throw CustomUMPPacketError.undefinedStatus
+        }
+        
+        let a = [UInt8((firstPacket & 0xff000000) >> 24), UInt8((firstPacket & 0x00ff0000) >> 16), UInt8((firstPacket & 0x0000ff00) >> 8), UInt8((firstPacket & 0x000000ff) >> 0)]
+        let b = [UInt8((secondPacket & 0xff000000) >> 24), UInt8((secondPacket & 0x00ff0000) >> 16), UInt8((secondPacket & 0x0000ff00) >> 8), UInt8((secondPacket & 0x000000ff) >> 0)]
+        
+        var uint8packets: [UInt8] = a + b
+        if uint8packets.count > 0 {
+            uint8packets.remove(at: 0)
+        }
+        if uint8packets.count > 0 {
+            uint8packets.remove(at: 0)
+        }
+        bytes = Array(uint8packets[0..<Int(length)])
+    }
+}
+
 class MIDIManager {
     var destination = MIDIDeviceRef()
     var destionationPort = MIDIPortRef()
@@ -295,9 +354,9 @@ class MIDIManager {
             self.destination = destination
             self.destionationPort = outputPort
             
-            //        let (_, sourcePort) = try initInput(clientName: "clientDest", portName: "portDest", block: self.receive(listPointer:context:))
+            let (_, sourcePort) = try initInput(clientName: "clientDest", portName: "portDest", block: self.receive(listPointer:context:))
             
-            let (_, sourcePort) = try old_initInput(clientName: "clientDest", portName: "portDest", block: self.receive(listPointer:context:))
+//            let (_, sourcePort) = try old_initInput(clientName: "clientDest", portName: "portDest", block: self.receive(listPointer:context:))
             MIDIPortConnectSource(sourcePort, source, nil)
         } catch {
             print(error)
@@ -361,6 +420,43 @@ class MIDIManager {
     }
 
     func receive(listPointer: UnsafePointer<MIDIEventList>, context: UnsafeMutableRawPointer?) -> Void {
+        do {
+            try listPointer.unsafeSequence().map { element -> Void in
+                guard element.pointee.wordCount % 2 == 0 else { throw SysExPacketLengthError.notEvenNumberedLength }
+                let words: [UInt32] = element.words().map({$0})
+                
+                let umps = words.chunked(into: 2)
+                
+                let customPackets = try umps.map({ try CustomUMPPacket(firstPacket: $0[0], secondPacket: $0[1])})
+                
+                customPackets.forEach { packet in
+                    switch packet.status {
+                    case .one:
+                        self.buffer = [UInt8(0xF0)]
+                        self.buffer.append(contentsOf: packet.bytes)
+                        self.buffer.append(UInt8(0xF7))
+                        let temp = self.buffer
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: .updatePatches, object: nil, userInfo: ["bytes": temp])
+                        }
+                    case .start:
+                        self.buffer = [UInt8(0xF0)]
+                        self.buffer.append(contentsOf: packet.bytes)
+                    case .continue:
+                        self.buffer.append(contentsOf: packet.bytes)
+                    case .end:
+                        self.buffer.append(contentsOf: packet.bytes)
+                        self.buffer.append(UInt8(0xF7))
+                        let temp = self.buffer
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: .updatePatches, object: nil, userInfo: ["bytes": temp])
+                        }
+                    }
+                }
+            }
+        } catch {
+            print(error)
+        }
     }
     
     func start() {
