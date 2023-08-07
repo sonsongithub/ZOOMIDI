@@ -31,6 +31,9 @@ struct EffectByteMap {
 
 enum PatchBinaryMapError: Error {
     case loadJsonFailed
+    case idNotFound
+    case statusNotFound
+    case paramsNotFound
 }
 
 struct PatchBinaryMap {
@@ -38,26 +41,26 @@ struct PatchBinaryMap {
     
     static func load() throws {
         guard let data = FileManager.default.contents(atPath: Bundle.main.path(forResource: "assign.json", ofType: nil)!) else { throw PatchBinaryMapError.loadJsonFailed }
-        // Data オブジェクトを JSON オブジェクトに変換
+        // convert to json object from Data
         let json = try JSONSerialization.jsonObject(with: data, options: [])
-        // JSON オブジェクトを Dictionary にキャスト
+
+        // Cast json to Dictionary
         guard let data = json as? [[String: Any]] else { throw PatchBinaryMapError.loadJsonFailed }
-//            let data = dictionary.compactMap({ $0 as? [String: Any]})
-        let t = try data.map { dict in
-            guard let id = dict["id"] as? [[String: Int]] else { throw NSError() }
+        
+        self.entry = try data.map { dict in
+            guard let id = dict["id"] as? [[String: Int]] else { throw PatchBinaryMapError.idNotFound }
             let id_array = id.compactMap({DataByteMap(dict: $0)})
             
-            guard let status = dict["status"] as? [[String: Int]] else { throw NSError() }
+            guard let status = dict["status"] as? [[String: Int]] else { throw PatchBinaryMapError.statusNotFound }
             let status_array = status.compactMap({DataByteMap(dict: $0)})
         
-            guard let tmp_params = dict["params"] as? [Any] else { throw NSError() }
+            guard let tmp_params = dict["params"] as? [Any] else { throw PatchBinaryMapError.paramsNotFound }
             let tmp_buf = tmp_params.compactMap({$0 as? [[String: Int]]})
             let params_array = tmp_buf.map { array in
                 array.compactMap({DataByteMap(dict: $0)})
             }
             return EffectByteMap(id: id_array, status: status_array, params: params_array)
         }
-        self.entry = t
     }
     
 }

@@ -11,12 +11,22 @@ enum PatchError: Error {
     case byteSizeNotCorrect
     case nameNotFound
     case effectTypeNotFound
+    
+    case unexpectedBytes
+    
+    case userInfoNotFound
+    case valueNotFound
+
+    case parameterNotFound
+}
+
+func binaryString(doubleWords: Int32) -> [String] {
+    let uint8array = (0..<4).map({ (doubleWords & (0xff << ($0 * 4))) >> ($0 * 4) })
+    return uint8array.map({binaryString(byte: UInt8($0))}).flatMap({$0})
 }
 
 func binaryString(byte: UInt8) -> [String] {
-    return (0..<8).map({
-        String((byte & (1 << (7 - $0))) >> (7 - $0))
-    })
+    return (0..<8).map({ String((byte & (1 << (7 - $0))) >> (7 - $0)) })
 }
 
 extension Notification.Name {
@@ -68,11 +78,11 @@ class Patch: ObservableObject {
     }
     
     static func parseDidChangeValue(bytes: [UInt8]) throws -> (Int, Int, Int){
-        guard bytes.count == 10 else { throw NSError() }
+        guard bytes.count == 10 else { throw PatchError.byteSizeNotCorrect }
         
-        guard bytes[1] == 0x52 else { throw NSError() }
-        guard bytes[3] == 0x5f else { throw NSError() }
-        guard bytes[4] == 0x31 else { throw NSError() }
+        guard bytes[1] == 0x52 else { throw PatchError.unexpectedBytes }
+        guard bytes[3] == 0x5f else { throw PatchError.unexpectedBytes }
+        guard bytes[4] == 0x31 else { throw PatchError.unexpectedBytes }
         
         let effectNum = Int(bytes[5])
         let paramNum = Int(bytes[6])
@@ -85,62 +95,53 @@ class Patch: ObservableObject {
         name = ""
         effects = []
         
-        NotificationCenter.default.addObserver(self, selector: #selector(doSomething(notification:)), name: .updatePatches, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdatePatch(notification:)), name: .updatePatches, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateParameter(notification:)), name: .updateParameter, object: nil)
     }
     
     @objc func didUpdateParameter(notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: Any] else { return }
-        
-        guard let parameter = userInfo["parameter"] as? Int else { return }
-        guard let uuid = userInfo["UUID"] as? UUID else { return }
-        
-        var effectorIndex: Int? = nil
-        var parameterIndex: Int? = nil
-        
-        for i in 0..<self.effects.count {
-            for j in 0..<self.effects[i].params.count {
-                let parameter = self.effects[i].params[j]
-                if parameter.id == uuid {
-                    effectorIndex = i
-                    parameterIndex = j
+        do {
+            guard let userInfo = notification.userInfo as? [String: Any] else { throw PatchError.userInfoNotFound }
+            guard let parameter = userInfo["parameter"] as? Int else { throw PatchError.valueNotFound }
+            guard let uuid = userInfo["UUID"] as? UUID else { throw PatchError.valueNotFound }
+            
+            var effectorIndex: Int? = nil
+            var parameterIndex: Int? = nil
+            
+            for i in 0..<self.effects.count {
+                for j in 0..<self.effects[i].params.count {
+                    let parameter = self.effects[i].params[j]
+                    if parameter.id == uuid {
+                        effectorIndex = i
+                        parameterIndex = j
+                    }
                 }
             }
-        }
-        
-        guard let effectorIndex = effectorIndex else { return }
-        guard let parameterIndex = parameterIndex else { return }
-        
-//        0x52,0x00,0x58,0x31,nn,pp,vvLSB,vvMSB
-        
-        let lsb = UInt8(parameter & 0b01111111)
-        
-        let msb = UInt8((parameter & 0b11110000000) >> 7)
-        
-        
-        let bytes = [UInt8(0x52), UInt8(0x00), UInt8(0x5F), UInt8(0x31), UInt8(effectorIndex), UInt8(parameterIndex + 2), lsb, msb]
-        
-        print(bytes.map({ String(format: "%02x", $0)}).joined(separator: " "))
-        
-        let send_userInfo: [String: Any] = ["bytes": bytes]
-        NotificationCenter.default.post(name: .requestBytes, object: nil, userInfo: send_userInfo)
-    }
-    
-    @objc func doSomething(notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let bytes = userInfo["bytes"] as? [UInt8] else { return }
-        do {
-            (self.name, self.effects) = try Patch.parseBytesForPatch(bytes: bytes)
+            
+            guard let effectorIndex = effectorIndex else { throw PatchError.parameterNotFound }
+            guard let parameterIndex = parameterIndex else { throw PatchError.parameterNotFound }
+            
+            let lsb = UInt8(parameter & 0b01111111)
+            let msb = UInt8((parameter & 0b11110000000) >> 7)
+            let bytes = [UInt8(0x52), UInt8(0x00), UInt8(0x5F), UInt8(0x31), UInt8(effectorIndex), UInt8(parameterIndex + 2), lsb, msb]
+            let send_userInfo: [String: Any] = ["bytes": bytes]
+            NotificationCenter.default.post(name: .requestBytes, object: nil, userInfo: send_userInfo)
         } catch {
             print(error)
         }
+    }
+    
+    @objc func didUpdatePatch(notification: Notification) {
         do {
+            guard let userInfo = notification.userInfo else { throw PatchError.userInfoNotFound }
+            guard let bytes = userInfo["bytes"] as? [UInt8] else { throw PatchError.parameterNotFound }
+            (self.name, self.effects) = try Patch.parseBytesForPatch(bytes: bytes)
             let (effectNum, paramNum, value) = try Patch.parseDidChangeValue(bytes: bytes)
             self.effects[effectNum].params[paramNum - 2].value = Float(value)
             self.effects[effectNum].params[paramNum - 2].floatValue = Float(value)
             self.effects[effectNum].params[paramNum - 2].intValue = value
         } catch {
-//            print(error)
+            print(error)
         }
     }
         

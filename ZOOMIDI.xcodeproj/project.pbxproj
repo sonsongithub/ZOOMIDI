@@ -17,6 +17,10 @@
 		140F506B2A66773B009CED58 /* patchData03.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50662A66773B009CED58 /* patchData03.bin */; };
 		140F506C2A66773B009CED58 /* parameterEdit.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50672A66773B009CED58 /* parameterEdit.bin */; };
 		140F506D2A66773B009CED58 /* patchData04.bin in Resources */ = {isa = PBXBuildFile; fileRef = 140F50682A66773B009CED58 /* patchData04.bin */; };
+		1456D1042A794C0F00DDAC39 /* MIDIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456D1032A794C0F00DDAC39 /* MIDIHelper.swift */; };
+		1456D1052A794C0F00DDAC39 /* MIDIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456D1032A794C0F00DDAC39 /* MIDIHelper.swift */; };
+		1456D1072A794E9000DDAC39 /* CustomUMPPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456D1062A794E8F00DDAC39 /* CustomUMPPacket.swift */; };
+		1456D1082A794E9000DDAC39 /* CustomUMPPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456D1062A794E8F00DDAC39 /* CustomUMPPacket.swift */; };
 		1486A03E2A6ABFC000BF2B4D /* Patch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1486A03D2A6ABFC000BF2B4D /* Patch.swift */; };
 		1486A03F2A6ABFC000BF2B4D /* Patch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1486A03D2A6ABFC000BF2B4D /* Patch.swift */; };
 		149B82F02A6AC51200BE6B66 /* PatchBinaryMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */; };
@@ -59,6 +63,8 @@
 		140F50662A66773B009CED58 /* patchData03.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = patchData03.bin; sourceTree = "<group>"; };
 		140F50672A66773B009CED58 /* parameterEdit.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = parameterEdit.bin; sourceTree = "<group>"; };
 		140F50682A66773B009CED58 /* patchData04.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = patchData04.bin; sourceTree = "<group>"; };
+		1456D1032A794C0F00DDAC39 /* MIDIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIHelper.swift; sourceTree = "<group>"; };
+		1456D1062A794E8F00DDAC39 /* CustomUMPPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUMPPacket.swift; sourceTree = "<group>"; };
 		1486A03D2A6ABFC000BF2B4D /* Patch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patch.swift; sourceTree = "<group>"; };
 		149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchBinaryMap.swift; sourceTree = "<group>"; };
 		149B82F22A6B678900BE6B66 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
@@ -136,6 +142,8 @@
 				14CB74132A6592F1002499B8 /* effect_v2.json */,
 				14CB74142A6592F2002499B8 /* effect_v3.json */,
 				14CB740A2A653346002499B8 /* MIDIManager.swift */,
+				1456D1032A794C0F00DDAC39 /* MIDIHelper.swift */,
+				1456D1062A794E8F00DDAC39 /* CustomUMPPacket.swift */,
 				1486A03D2A6ABFC000BF2B4D /* Patch.swift */,
 				149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */,
 				14CB74042A651A02002499B8 /* Effector.swift */,
@@ -270,9 +278,11 @@
 				14E954762A67AB9200E58966 /* Effector.swift in Sources */,
 				149B82F42A6B678900BE6B66 /* Parameter.swift in Sources */,
 				149B82F12A6AC51200BE6B66 /* PatchBinaryMap.swift in Sources */,
+				1456D1052A794C0F00DDAC39 /* MIDIHelper.swift in Sources */,
 				140F505E2A667625009CED58 /* ZOOMIDITests.swift in Sources */,
 				14E954772A67AB9200E58966 /* MIDIManager.swift in Sources */,
 				140ACAA62A6A892000BF0F04 /* ParameterType.swift in Sources */,
+				1456D1082A794E9000DDAC39 /* CustomUMPPacket.swift in Sources */,
 				1486A03F2A6ABFC000BF2B4D /* Patch.swift in Sources */,
 				140ACAA72A6A893B00BF0F04 /* EffectorType.swift in Sources */,
 			);
@@ -288,8 +298,10 @@
 				140ACAA42A6A85EB00BF0F04 /* EffectorType.swift in Sources */,
 				14CB73F72A651704002499B8 /* ZOOMIDIApp.swift in Sources */,
 				1486A03E2A6ABFC000BF2B4D /* Patch.swift in Sources */,
+				1456D1072A794E9000DDAC39 /* CustomUMPPacket.swift in Sources */,
 				149B82F02A6AC51200BE6B66 /* PatchBinaryMap.swift in Sources */,
 				149B82F32A6B678900BE6B66 /* Parameter.swift in Sources */,
+				1456D1042A794C0F00DDAC39 /* MIDIHelper.swift in Sources */,
 				14CB740B2A653346002499B8 /* MIDIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

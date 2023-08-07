@@ -20,5 +20,13 @@ class Effector: ObservableObject, Identifiable {
         self.status = status
         self.params = parameters
     }
+    
+//    init(type: EffectorType) {
+//        self.type = type
+//        self.id = UUID()
+//        self.status = 1
+//        
+//        self.type.parameters[0].
+//    }
 }
 
