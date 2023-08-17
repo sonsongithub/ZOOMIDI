@@ -7,66 +7,6 @@
 
 import SwiftUI
 
-struct CABView: View {
-    var text: String
-    
-    enum Note {
-        case none
-        case sixteenthNote
-        case eighthNote
-        case quarterNote
-        case halfNote
-        case wholeNote
-    }
-    
-    var imageType: Note
-    
-    init(keyword: String) {
-        let regrex = /&#x([\w\d]+);\s*(.*?)/
-        if let match = keyword.wholeMatch(of: regrex) {
-            text = String(match.output.2)
-            switch match.output.1 {
-            case "1D15D":
-                imageType = .wholeNote
-            case "1D15E":
-                imageType = .halfNote
-            case "1D15F":
-                imageType = .quarterNote
-            case "1D160":
-                imageType = .eighthNote
-            case "1D161":
-                imageType = .sixteenthNote
-            default:
-                print(keyword)
-                imageType = .none
-            }
-        } else {
-            imageType = .none
-            text = keyword
-        }
-    }
-    
-    var body: some View {
-        HStack {
-            switch imageType {
-            case .sixteenthNote:
-                Image("sixteenth_note")
-            case .eighthNote:
-                Image("eighth_note")
-            case .quarterNote:
-                Image("quarter_note")
-            case .halfNote:
-                Image("half_note")
-            case .wholeNote:
-                Image("whole_note")
-            default:
-                do {}
-            }
-            Text(self.text)
-        }
-    }
-}
-
 struct HogeView: View {
     
     @ObservedObject var parameter: Parameter
@@ -78,7 +18,6 @@ struct HogeView: View {
             VStack {
                 Text(name)
                 Gauge(value: parameter.floatValue + Float(offset), in:  Float(offset)...Float(max) + Float(offset)) {
-//                    Text("\(name)")
                 } currentValueLabel: {
                     Text("\(Int(parameter.floatValue + Float(offset)))")
                 }.gaugeStyle(.accessoryCircular)
@@ -92,11 +31,11 @@ struct HogeView: View {
                 }
 
             }.frame(width: 100, height:180).background()
-        case .list(let name, _, let _, let titles):
+        case .list(let name, _, _, let titles):
             VStack {
                 Text(name)
                 Picker(selection: $parameter.intValue, label: Text(name)) {
-                    ForEach(0..<Int(titles.count)) { i in
+                    ForEach(0..<titles.count, id: \.self) { i in
                         Text(titles[i])
                     }
                 }.onChange(of: parameter.intValue) { newValue in
@@ -108,20 +47,16 @@ struct HogeView: View {
                     NotificationCenter.default.post(name: .updateParameter, object: nil, userInfo: userInfo)
                 }
             }.frame(width: 100, height:180).background()
-        case .cab(let name, _, let max, let titles):
+        case .cab(let name, _, _, let titles):
             VStack {
                 Text(name)
                 Picker(selection: $parameter.cabValue, label: Text(name)) {
-                    ForEach(0..<titles.count) { i in
+                    ForEach(0..<titles.count, id: \.self) { i in
                         Text(titles[i])
                     }
                 }.onChange(of: parameter.cabValue) { newValue in
-//                    parameter.intValue = max[newValue]
-//                    let userInfo: [String: Any] = [
-//                        "parameter": max[newValue],
-//                        "UUID": parameter.id
-//                    ]
-//                    NotificationCenter.default.post(name: .updateParameter, object: nil, userInfo: userInfo)
+                    // Now, I don't know how to change CAB.
+                    // We could not change CAB value a normal parameter update message.
                 }.disabled(true)
             }.frame(width: 100, height:180).background()
         case .pair(let name, _, let max, _, _, let disp_min, let titles):
@@ -149,10 +84,6 @@ struct HogeView: View {
             VStack {
                 Text("")
             }.frame(width: 100, height:180).background(.clear)
-        default:
-            VStack {
-                Text("\(parameter.value)")
-            }.frame(width: 100, height:180).background()
         }
     }
 }
