@@ -18,6 +18,8 @@ enum PatchError: Error {
     case valueNotFound
 
     case parameterNotFound
+    
+    case indexOverFlow
 }
 
 func binaryString(doubleWords: Int32) -> [String] {
@@ -58,6 +60,10 @@ class Patch: ObservableObject {
             let status_value = map_entry.status.reduce(into: 0) { re, obj in
                 re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
             }
+            let cab_value = map_entry.cab.reduce(into: 0) { re, obj in
+                re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
+            }
+            
             let params: [Int] = map_entry.params.map({ param_map in
                 let value = param_map.reduce(into: 0) { re, obj in
                     re = re + (Int(bytes[obj.byteOffset]) & obj.mask) << obj.bitOffset
@@ -71,7 +77,7 @@ class Patch: ObservableObject {
                 return Parameter(value: value, type: parameterType)
             })
             
-            return Effector(type: type, status: status_value, parameters: parameters)
+            return Effector(type: type, status: status_value, cab: cab_value, parameters: parameters)
         })
         
         return (name, effects)
@@ -88,6 +94,8 @@ class Patch: ObservableObject {
         let paramNum = Int(bytes[6])
         let value = (Int(bytes[7]) & 0b01111111) + ((Int(bytes[8]) & 0b00001111) << 7)
 
+        print("value = \(value)")
+            
         return (effectNum, paramNum, value)
     }
     
@@ -121,11 +129,15 @@ class Patch: ObservableObject {
             guard let effectorIndex = effectorIndex else { throw PatchError.parameterNotFound }
             guard let parameterIndex = parameterIndex else { throw PatchError.parameterNotFound }
             
-            let lsb = UInt8(parameter & 0b01111111)
-            let msb = UInt8((parameter & 0b11110000000) >> 7)
-            let bytes = [UInt8(0x52), UInt8(0x00), UInt8(0x5F), UInt8(0x31), UInt8(effectorIndex), UInt8(parameterIndex + 2), lsb, msb]
-            let send_userInfo: [String: Any] = ["bytes": bytes]
-            NotificationCenter.default.post(name: .requestBytes, object: nil, userInfo: send_userInfo)
+            if !self.effects[effectorIndex].params[parameterIndex].lock {
+                
+                let lsb = UInt8(parameter & 0b01111111)
+                let msb = UInt8((parameter & 0b11110000000) >> 7)
+                let bytes = [UInt8(0x52), UInt8(0x00), UInt8(0x5F), UInt8(0x31), UInt8(effectorIndex), UInt8(parameterIndex + 2), lsb, msb]
+                let send_userInfo: [String: Any] = ["bytes": bytes]
+                NotificationCenter.default.post(name: .requestBytes, object: nil, userInfo: send_userInfo)
+            }
+            self.effects[effectorIndex].params[parameterIndex].lock = false
         } catch {
             print(error)
         }
@@ -136,16 +148,75 @@ class Patch: ObservableObject {
             guard let userInfo = notification.userInfo else { throw PatchError.userInfoNotFound }
             guard let bytes = userInfo["bytes"] as? [UInt8] else { throw PatchError.parameterNotFound }
             (self.name, self.effects) = try Patch.parseBytesForPatch(bytes: bytes)
+            return
+        } catch {
+        }
+        do {
+            guard let userInfo = notification.userInfo else { throw PatchError.userInfoNotFound }
+            guard let bytes = userInfo["bytes"] as? [UInt8] else { throw PatchError.parameterNotFound }
             let (effectNum, paramNum, value) = try Patch.parseDidChangeValue(bytes: bytes)
+            print("didUpdatePatch")
+            print(value)
             self.effects[effectNum].params[paramNum - 2].value = Float(value)
             self.effects[effectNum].params[paramNum - 2].floatValue = Float(value)
             self.effects[effectNum].params[paramNum - 2].intValue = value
         } catch {
-            print(error)
         }
     }
         
     init(bytes: [UInt8]) throws {
         (self.name, self.effects) = try Patch.parseBytesForPatch(bytes: bytes)
+    }
+    
+    func replace(effectorType: EffectorType, at index: Int) throws {
+        guard index < 4 else { throw PatchError.indexOverFlow}
+        
+        let newEffector = Effector(type: effectorType)
+        
+        if index >= self.effects.count {
+            self.effects.append(newEffector)
+        } else {
+            self.effects[index] = newEffector
+        }
+    }
+    
+    func binarize() throws -> [UInt8] {
+        var bytes: [UInt8] = [
+            0xf0,0x52,0x00,0x5f,0x28,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+            0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+            0x00,0x00,0x00,0x00,0x00,0x10,0x00,0x00,0x40,0x04,0x0f,0x45,0x6d,0x00,0x70,0x74,0x79,0x20,0x20,0x20,
+            0x20,0x00,0x20,0x00,0xf7];
+        
+        bytes[0] = 0xF0
+        bytes[1] = 0x52
+        bytes[2] = 0x00
+        bytes[3] = 0x5F
+        bytes[4] = 0x28
+        bytes[bytes.count-1] = 0xF7
+        
+        (0..<self.effects.count).forEach({
+            let effect = self.effects[$0]
+            let mapEntry = PatchBinaryMap.entry[$0]
+            
+            mapEntry.id.forEach { obj in
+                bytes[obj.byteOffset] = bytes[obj.byteOffset] + UInt8((effect.type.number >> obj.bitOffset) & Int(obj.mask))
+            }
+            mapEntry.status.forEach { obj in
+                bytes[obj.byteOffset] = bytes[obj.byteOffset] + UInt8((effect.status >> obj.bitOffset) & Int(obj.mask))
+            }
+            mapEntry.cab.forEach { obj in
+                bytes[obj.byteOffset] = bytes[obj.byteOffset] + UInt8((effect.cab >> obj.bitOffset) & Int(obj.mask))
+            }
+            
+            zip(mapEntry.params[0..<effect.type.parameters.count], effect.params[0..<effect.type.parameters.count]).forEach { (maps, param) in
+                maps.forEach { map in
+                    bytes[map.byteOffset] = bytes[map.byteOffset] + UInt8((param.intValue >> map.bitOffset) & Int(map.mask))
+                }
+            }
+        })
+                
+        return bytes
     }
 }

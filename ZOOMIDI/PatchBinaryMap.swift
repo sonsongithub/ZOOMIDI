@@ -26,6 +26,7 @@ struct DataByteMap {
 struct EffectByteMap {
     let id: [DataByteMap]
     let status: [DataByteMap]
+    let cab: [DataByteMap]
     let params: [[DataByteMap]]
 }
 
@@ -53,13 +54,16 @@ struct PatchBinaryMap {
             
             guard let status = dict["status"] as? [[String: Int]] else { throw PatchBinaryMapError.statusNotFound }
             let status_array = status.compactMap({DataByteMap(dict: $0)})
+            
+            guard let status = dict["cab"] as? [[String: Int]] else { throw PatchBinaryMapError.statusNotFound }
+            let cab_array = status.compactMap({DataByteMap(dict: $0)})
         
             guard let tmp_params = dict["params"] as? [Any] else { throw PatchBinaryMapError.paramsNotFound }
             let tmp_buf = tmp_params.compactMap({$0 as? [[String: Int]]})
             let params_array = tmp_buf.map { array in
                 array.compactMap({DataByteMap(dict: $0)})
             }
-            return EffectByteMap(id: id_array, status: status_array, params: params_array)
+            return EffectByteMap(id: id_array, status: status_array, cab: cab_array, params: params_array)
         }
     }
     

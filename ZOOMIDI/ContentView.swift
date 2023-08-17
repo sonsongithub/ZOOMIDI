@@ -108,23 +108,23 @@ struct HogeView: View {
                     NotificationCenter.default.post(name: .updateParameter, object: nil, userInfo: userInfo)
                 }
             }.frame(width: 100, height:180).background()
-        case .pair(let name, _, let max, let titles):
+        case .cab(let name, _, let max, let titles):
             VStack {
                 Text(name)
-                Picker(selection: $parameter.intValue, label: Text(name)) {
+                Picker(selection: $parameter.cabValue, label: Text(name)) {
                     ForEach(0..<titles.count) { i in
                         Text(titles[i])
                     }
-                }.onChange(of: parameter.intValue) { newValue in
-                    print(max[newValue])
-                    let userInfo: [String: Any] = [
-                        "parameter": Int(parameter.intValue),
-                        "UUID": parameter.id
-                    ]
-                    NotificationCenter.default.post(name: .updateParameter, object: nil, userInfo: userInfo)
-                }
+                }.onChange(of: parameter.cabValue) { newValue in
+//                    parameter.intValue = max[newValue]
+//                    let userInfo: [String: Any] = [
+//                        "parameter": max[newValue],
+//                        "UUID": parameter.id
+//                    ]
+//                    NotificationCenter.default.post(name: .updateParameter, object: nil, userInfo: userInfo)
+                }.disabled(true)
             }.frame(width: 100, height:180).background()
-        case .cab(let name, _, let max, _, _, let disp_min, let titles):
+        case .pair(let name, _, let max, _, _, let disp_min, let titles):
             VStack {
                 Text(name)
                 Gauge(value: parameter.floatValue, in: 0...Float(max)) {

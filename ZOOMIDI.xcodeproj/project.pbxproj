@@ -27,6 +27,8 @@
 		149B82F12A6AC51200BE6B66 /* PatchBinaryMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */; };
 		149B82F32A6B678900BE6B66 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B82F22A6B678900BE6B66 /* Parameter.swift */; };
 		149B82F42A6B678900BE6B66 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B82F22A6B678900BE6B66 /* Parameter.swift */; };
+		14C9B0A42A8DBDAB00205A5E /* E_MS-60B_FX-list_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C9B0A22A8DBDAB00205A5E /* E_MS-60B_FX-list_v2.json */; };
+		14C9B0A52A8DBDAB00205A5E /* J_MS-60B_FX-list_v2_0.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C9B0A32A8DBDAB00205A5E /* J_MS-60B_FX-list_v2_0.json */; };
 		14CB73F72A651704002499B8 /* ZOOMIDIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB73F62A651704002499B8 /* ZOOMIDIApp.swift */; };
 		14CB73F92A651704002499B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB73F82A651704002499B8 /* ContentView.swift */; };
 		14CB73FB2A651709002499B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14CB73FA2A651709002499B8 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		1486A03D2A6ABFC000BF2B4D /* Patch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patch.swift; sourceTree = "<group>"; };
 		149B82EF2A6AC51200BE6B66 /* PatchBinaryMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchBinaryMap.swift; sourceTree = "<group>"; };
 		149B82F22A6B678900BE6B66 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		14C9B0A22A8DBDAB00205A5E /* E_MS-60B_FX-list_v2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "E_MS-60B_FX-list_v2.json"; sourceTree = "<group>"; };
+		14C9B0A32A8DBDAB00205A5E /* J_MS-60B_FX-list_v2_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "J_MS-60B_FX-list_v2_0.json"; sourceTree = "<group>"; };
 		14CB73F32A651704002499B8 /* ZOOMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZOOMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14CB73F62A651704002499B8 /* ZOOMIDIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZOOMIDIApp.swift; sourceTree = "<group>"; };
 		14CB73F82A651704002499B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				14CB74122A6592F1002499B8 /* effect_v1.json */,
 				14CB74132A6592F1002499B8 /* effect_v2.json */,
 				14CB74142A6592F2002499B8 /* effect_v3.json */,
+				14C9B0A22A8DBDAB00205A5E /* E_MS-60B_FX-list_v2.json */,
+				14C9B0A32A8DBDAB00205A5E /* J_MS-60B_FX-list_v2_0.json */,
 				14CB740A2A653346002499B8 /* MIDIManager.swift */,
 				1456D1032A794C0F00DDAC39 /* MIDIHelper.swift */,
 				1456D1062A794E8F00DDAC39 /* CustomUMPPacket.swift */,
@@ -265,6 +271,8 @@
 				14CB740D2A6537C5002499B8 /* assign.json in Resources */,
 				14CB73FE2A651709002499B8 /* Preview Assets.xcassets in Resources */,
 				14CB73FB2A651709002499B8 /* Assets.xcassets in Resources */,
+				14C9B0A52A8DBDAB00205A5E /* J_MS-60B_FX-list_v2_0.json in Resources */,
+				14C9B0A42A8DBDAB00205A5E /* E_MS-60B_FX-list_v2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

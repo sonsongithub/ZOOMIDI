@@ -30,6 +30,13 @@
         "bit_offset": 0
       }
     ],
+    "cab": [
+        {
+          "byte_offset": 23,
+          "mask": 255,
+          "bit_offset": 0
+        }
+    ],
     "params": [
       [
         {
@@ -237,6 +244,13 @@
         "bit_offset": 0
       }
     ],
+    "cab": [
+        {
+          "byte_offset": 43,
+          "mask": 255,
+          "bit_offset": 0
+        }
+    ],
     "params": [
       [
         {
@@ -438,6 +452,13 @@
         "mask": 31,
         "bit_offset": 0
       }
+    ],
+    "cab": [
+        {
+          "byte_offset": 64,
+          "mask": 255,
+          "bit_offset": 0
+        }
     ],
     "params": [
       [
@@ -641,6 +662,13 @@
         "bit_offset": 0
       }
     ],
+    "cab": [
+        {
+          "byte_offset": 84,
+          "mask": 255,
+          "bit_offset": 0
+        }
+    ],
     "params": [
       [
         {
@@ -843,6 +871,13 @@
         "bit_offset": 0
       }
     ],
+    "cab": [
+        {
+          "byte_offset": 105,
+          "mask": 255,
+          "bit_offset": 0
+        }
+    ],
     "params": [
       [
         {
@@ -1044,6 +1079,13 @@
         "mask": 31,
         "bit_offset": 0
       }
+    ],
+    "cab": [
+        {
+          "byte_offset": 126,
+          "mask": 255,
+          "bit_offset": 0
+        }
     ],
     "params": [
       [
