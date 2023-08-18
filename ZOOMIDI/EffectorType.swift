@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EffectorType {
+struct EffectorType: Identifiable {
     let name: String
     let group: String
     let order: Int
@@ -32,6 +32,8 @@ struct EffectorType {
     }
     
     static var data: [Int: EffectorType] = [:]
+    static var categorisedData: [String: [EffectorType]] = [:]
+
     
     static func load() throws {
         
@@ -100,5 +102,17 @@ struct EffectorType {
             return (effectNumberAsInt, type)
         }
         EffectorType.data = Dictionary(uniqueKeysWithValues: tmp)
+        
+        let categories: [String] = Array(Set(tmp.map({ $0.1.group })))
+        
+        var dict: [String: [EffectorType]] = [:]
+        
+        categories.forEach {
+            let category = $0
+            let effectors = tmp.filter({ $0.1.group == category}).map({ $0.1 })
+            dict[category] = effectors
+        }
+        
+        EffectorType.categorisedData = dict
     }
 }

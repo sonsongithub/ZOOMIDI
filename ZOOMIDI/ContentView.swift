@@ -7,6 +7,31 @@
 
 import SwiftUI
 
+struct SheetView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    var data: [EffectorType] = EffectorType.data.map { $0.value }
+    let categories: [String] = Array(Set(EffectorType.categorisedData.map({ $0.0 })))
+
+    var body: some View {
+        List {
+            ForEach(0..<categories.count, id: \.self) { index in
+                Section {
+                    ForEach(EffectorType.categorisedData[categories[index]] ?? []) { datum in
+                        HStack {
+                            Image(datum.name.replacing([" "], with: ["_"]))
+                            Text(datum.name)
+                            Text(datum.description)
+                        }
+                    }
+                } header: {
+                    Text(categories[index])
+                }
+            }
+        }
+    }
+}
+
 struct HogeView: View {
     
     @ObservedObject var parameter: Parameter
@@ -91,11 +116,17 @@ struct HogeView: View {
 
 struct EffectView: View {
     @ObservedObject var effect: Effector
+    @State private var showingSheet = false
     
     var body: some View {
         VStack {
             HStack {
-                Text(String(effect.type.name.replacing([" "], with: ["_"])))
+                Text(String(effect.type.name.replacing([" "], with: ["_"]))).onTapGesture {
+                    showingSheet.toggle()
+                }
+                .sheet(isPresented: $showingSheet) {
+                    SheetView()
+                }
                 Image(effect.type.name.replacing([" "], with: ["_"]))
             }
              VStack {
